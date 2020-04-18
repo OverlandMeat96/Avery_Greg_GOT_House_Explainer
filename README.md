@@ -2,7 +2,7 @@
 
 # GOT House Explainer
 
-This is the Git Repo for our vaporwave themed music mixer project. The vaporwave theme is focused on the 80's style of neon lights and bright colors and also has a heavy muscle car view. This theme can be seen in many different racing video games such as "OutRun", "Far Cry:Blood Dragon" and "OutDrive". Our music samples will be split into four different categories; bass, percussion, high synth, and low synth.
+This the the Github repo for the GOT House Explainer website. In this site, you can click on each seperate house banner and it will give you information about the house and open up a short video related to the house. 
 
 ### Getting Started
 This is a basic HTML / CSS / JavaScript build.
