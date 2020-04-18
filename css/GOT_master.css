@@ -12,7 +12,8 @@
 /* ----- default styles ----- */
 body { background-image:url(../images/grungeBG.jpg);
 	background-repeat:no-repeat; background-position:center center;
-	background-color:#000000; font-size:16px; }
+	background-color:#000000; font-size:16px; width: 960px; margin: 0 auto;}
+
 
 h1 {
 	font-family: 'GOT_font';
@@ -31,13 +32,20 @@ main {
 #imageContainer {
 	width:600px;
 	height:360px;
-	background-color:grey;
-	margin:0 auto;
+	background-color:;
 	overflow:hidden;
+	margin: 0 auto;
 }
 
-#houseImages { position:relative; width:4000px; transition: all .5s; }
-#houseImages img { float:left; }
+.houseImages { 
+	position:relative; 
+	width:4000px; transition: 
+	all .5s; 
+}
+
+.houseImages img { 
+	float:left; 
+}
 
 #bottomNav { margin-top:30px; }
 
@@ -100,7 +108,6 @@ main {
 .lightbox {
 	display: none;
 	background-color: rgba(0, 0, 0, 0.8);
-
 	position: absolute;
 	top: 0;
 	width: 100vw;
@@ -114,17 +121,18 @@ main {
 .lightbox-close {
 	color: white;
 	float: right;
-	padding:15px 30px 0px 0px;
+	padding: 160px 370px 0px 0px;
 	display: block;
-	font-size: 50px;
+	font-size: 30px;
 	cursor: pointer;
+	font-family: Arial;
 }
 
 
 video {
 	width: 80%;
-	margin-top: 10%;
 	border: thin solid #949393;
+	margin: 0px 0px 0px 0px;
 }
 
 .house-info {

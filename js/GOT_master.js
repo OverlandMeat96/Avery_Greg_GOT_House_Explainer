@@ -4,7 +4,7 @@
 		lightBox = document.querySelector(".lightbox"),
 		gotVideo = lightBox.querySelector(".video-player"),
 		closeLightBox = lightBox.querySelector(".lightbox-close"),
-		houseName = document.querySelector("h1");
+		houseName = document.querySelector("h1"),
 		houseDescription = document.querySelector(".house-info");
 
 	const houseData = [
@@ -21,21 +21,18 @@
 	  ["Arryn", `House Arryn of the Eyrie is one of the Great Houses of Westeros. It has ruled over the Vale of Arryn for millennia, originally as the Kings of Mountain and Vale and more recently as Lords Paramount of the Vale and Wardens of the East under the Targaryen kings and Baratheon-Lannister kings. The nominal head of House Arryn is Robin Arryn, the Lord of the Eyrie, with his stepfather Petyr Baelish acting as Lord Protector until he reaches the age of majority.`]
 	];
 
-	// events go in the middle
+	
 	function showLightbox() {
 		// pop open a lightbox here and show some content
 		// start with the house name
 		houseName.textContent = `House ${houseData[this.dataset.offset][0]}`;
 		houseDescription.textContent = `${houseData[this.dataset.offset][1]}`;
-		// debugger;
-		
+
 		// need to get the class name from the element so we can match the video source
 		let targetName = this.className.split(" ")[1]; // this will strip out the house name
 		let targetSource = targetName.charAt(0).toUpperCase() + targetName.slice(1);
 
 		let newVideoSource = `video/House-${targetSource}.mp4`;
-
-		// debugger;
 
 		lightBox.classList.add('show-lightbox');
 
@@ -43,6 +40,8 @@
 
 		gotVideo.load();
 		gotVideo.play();
+
+		gsap.to(".show-lightbox", {x: -300, y: -170,  scale: 0.8, duration: 2.5, ease: "power4.out" });
 	}
 
 	function hideLightBox() {
@@ -53,20 +52,25 @@
 	}
 
 	function animateBanners() {
-		// animate the banners across the page using same basic math and css
-		let offsetValue = 600;
-		let targetValue = offsetValue = this.dataset.offset;
-		debugger;
-
-		// figure out how to make the banners "slide" using this new value
+		gsap.to("#imageContainer", { x: -1800, duration: 0, onComplete: changeBanner });
 	}
+
+	function changeBanner () {
+
+		gsap.to("#imageContainer", { onComplete: moveBanners });
+	}
+
+	function moveBanners() {
+		gsap.to("#imageContainer", { x: 1, duration: 1.8, ease: "elastic.out(1, 0.3)" });
+	}
+
+
 
 	// add a click event to the sigilButtons
 	sigilButtons.forEach(button => button.addEventListener("click", showLightbox));
 
-	// add another click event to the sigilButtons -> this will animate the banners across the top of the page
-	sigilButtons.forEach(button => button.addEventListener("click", showLightbox));
-
 	// add an event handler for the lightbox close button
 	closeLightBox.addEventListener("click", hideLightBox);
+
+	sigilButtons.forEach(button => button.addEventListener("click", animateBanners))
 })();
